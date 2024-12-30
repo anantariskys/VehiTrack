@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,9 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::group(['prefix' => 'vehicle'], function () {
-        Route::get('/', function () {
-            return Inertia::render('Vehicle/Index');
-        });
+        Route::get('/',[VehicleController::class,'index'])->name('vehicle.index');
+        Route::get('/create',[VehicleController::class,'create'])->name('vehicle.create');
+        Route::post('/store',[VehicleController::class,'store'])->name('vehicle.store');
+    });
+    Route::group(['prefix' => 'driver'], function () {
+        Route::get('/',[DriverController::class,'index'])->name('driver.index');
+        Route::get('/create',[DriverController::class,'create'])->name('driver.create');
+        Route::post('/store',[DriverController::class,'store'])->name('driver.store');
     });
 });
 
