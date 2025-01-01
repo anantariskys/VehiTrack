@@ -33,6 +33,23 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function makerBookings()
+    {
+        return $this->hasMany(Booking::class, 'administrator_id');
+    }
+
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
+
+
+    public function bookingsAsApprover()
+    {
+        return $this->belongsToMany(Booking::class, 'booking_approvers', 'approver_id', 'booking_id');
+    }
+
+
     /**
      * Get the attributes that should be cast.
      *
