@@ -26,7 +26,7 @@ const FormInput: FC<FormInputProps> = ({
             id={id}
             value={value}
             onChange={onChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+            className="mt-1 text-sm md:text-base block w-full rounded-md border-gray-300 shadow-sm"
         />
         {error && <span className="text-red-500 text-sm">{error}</span>}
     </div>
