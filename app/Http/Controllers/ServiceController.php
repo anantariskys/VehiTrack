@@ -39,6 +39,7 @@ class ServiceController extends Controller
 
         $vehicle = Vehicle::find($validated['vehicle_id']);
         $vehicle->status = 'maintenance';
+        $vehicle->last_service_date = now();
         $vehicle->save();
         $service = Service::create($validated);
         if($service){

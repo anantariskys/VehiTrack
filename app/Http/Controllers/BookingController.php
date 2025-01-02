@@ -43,9 +43,8 @@ class BookingController extends Controller
             'driver_id' => 'required',
             'administrator_id' => 'required',
             'approver' => 'required|array',
-            'start_date' => 'required',
+     
         ]);
-   
 
         if (count($validated['approver']) < 2) {
             return redirect()->route('booking.create')->with('status', 'error')
