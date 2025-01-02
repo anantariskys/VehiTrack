@@ -117,12 +117,12 @@ Menampilkan riwayat pemakaian kendaraan, termasuk pemesanan yang sudah selesai d
 
 - **Peran Admin**: Dapat melihat riwayat pemakaian semua kendaraan, serta dapat melakukan penyelesaian dari suatu peminjaman. setelah melakukan penyelesaian pada suatu peminjaman, progress dari peminjaman tersebut akan berubahn menjadi "done" lalu status dari kendaraan dan driver terkait akan berubah juga menjadi "available". Lalu data riwayat akan tertampil pada halaman ini
 
-### 8. Dashboard Monitoring
+### 7. Dashboard Monitoring
 
 Menampilkan pemantauan secara real-time terkait penggunaan kendaraan, termasuk data durasi pemesanan, konsumsi bahan bakar, dan statistik lainnya yang berkaitan dengan kendaraan, driver, dan pemesanan.
 - **Peran Admin && approver**: Dapat melihat data pemantauan secara lengkap untuk kendaraan dan pemesanan.
 
-### 9. Laporan Pemesanan
+### 8. Laporan Pemesanan
 
 Memungkinkan admin untuk mengunduh laporan pemesanan dalam format Excel secara periodik.
 - **Peran Admin**: Dapat mengekspor laporan pemesanan secara detail untuk analisis dan pencatatan.
