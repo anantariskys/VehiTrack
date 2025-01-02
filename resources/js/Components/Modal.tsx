@@ -1,71 +1,55 @@
-import {
-    Dialog,
-    DialogPanel,
-    Transition,
-    TransitionChild,
-} from '@headlessui/react';
-import { PropsWithChildren } from 'react';
+import React from "react";
+import { Icon } from "@iconify/react";
+import Button from "./Button";
+import { useNotificationModalStore } from "@/store/useNotificationModalStore";
 
-export default function Modal({
-    children,
-    show = false,
-    maxWidth = '2xl',
-    closeable = true,
-    onClose = () => {},
-}: PropsWithChildren<{
-    show: boolean;
-    maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-    closeable?: boolean;
-    onClose: CallableFunction;
-}>) {
-    const close = () => {
-        if (closeable) {
-            onClose();
-        }
-    };
+const Modal: React.FC<{closeButton?:boolean}> = ({closeButton}) => {
+  const { isModalOpen, modalMessage, onConfirm, closeModal, } =
+    useNotificationModalStore();
 
-    const maxWidthClass = {
-        sm: 'sm:max-w-sm',
-        md: 'sm:max-w-md',
-        lg: 'sm:max-w-lg',
-        xl: 'sm:max-w-xl',
-        '2xl': 'sm:max-w-2xl',
-    }[maxWidth];
-
-    return (
-        <Transition show={show} leave="duration-200">
-            <Dialog
-                as="div"
-                id="modal"
-                className="fixed inset-0 z-50 flex transform items-center overflow-y-auto px-4 py-6 transition-all sm:px-0"
-                onClose={close}
+  return (
+    <div
+      className={`fixed inset-0 bg-gray-800  bg-opacity-50 container z-40 flex justify-center items-center transition-opacity duration-300 ${
+        isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+      onClick={() => closeModal()}
+    >
+      <div
+        className={`bg-white p-8 rounded-lg shadow-lg  max-w-lg transition-transform duration-300 transform ${
+          isModalOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-center mb-4">
+          <Icon icon="mdi:alert-circle" className="text-red-500 text-4xl" />
+        </div>
+        <div className="text-center mb-4">
+          <h3 className="text-2xl font-semibold text-primary">
+            {modalMessage}
+          </h3>
+        </div>
+        <div className="flex justify-center gap-4">
+          {onConfirm && (
+            <Button
+         variant="primary"
+              onClick={() => {onConfirm(),closeModal()}}
             >
-                <TransitionChild
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                >
-                    <div className="absolute inset-0 bg-gray-500/75" />
-                </TransitionChild>
+              Ya
+            </Button>
+          )}
 
-                <TransitionChild
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    enterTo="opacity-100 translate-y-0 sm:scale-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                >
-                    <DialogPanel
-                        className={`mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full ${maxWidthClass}`}
-                    >
-                        {children}
-                    </DialogPanel>
-                </TransitionChild>
-            </Dialog>
-        </Transition>
-    );
-}
+            <Button
+            variant="secondary"
+              onClick={() => closeModal()}
+            >
+              Tidak
+            </Button>
+
+          {onConfirm && closeButton && <Button variant="secondary" onClick={() => closeModal()}>Close</Button>}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
