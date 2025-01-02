@@ -19,7 +19,11 @@ class DatabaseSeeder extends Seeder
         [
             DriverSeeder::class,
             VehicleSeeder::class,
-            UserSeeder::class
+            OfficeSeeder::class,
+            MinesSeeder::class,
+            UserSeeder::class,
+            // ServiceSeeder::class,
+            // BookingSeeder::class
         ]
        );
 

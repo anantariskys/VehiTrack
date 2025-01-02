@@ -16,7 +16,7 @@ class DriverSeeder extends Seeder
         $drivers = [
             [
                 'name' => 'Joko Susilo',
-                'status' => 'assigned',
+                'status' => 'available',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -28,7 +28,7 @@ class DriverSeeder extends Seeder
             ],
             [
                 'name' => 'Agus Salim',
-                'status' => 'assigned',
+                'status' => 'available',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
