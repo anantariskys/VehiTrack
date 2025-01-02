@@ -7,6 +7,8 @@ interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | "primary-outline"
     | "secondary"
     | "secondary-outline"
+    |'tertiary'
+    |'tertiary-outline';
   width?: "w-full" | "w-fit";
 }
 const Button: React.FC<buttonProps> = ({
@@ -24,6 +26,9 @@ const Button: React.FC<buttonProps> = ({
     case "secondary":
       className = "bg-secondary text-white";
       break;
+    case "tertiary":
+      className = "bg-neutral-600 text-white";
+      break;
     case "secondary-outline":
       className =
         "bg-transparent border  border-secondary hover:bg-secondary hover:text-white transition-colors text-primary";
@@ -32,6 +37,7 @@ const Button: React.FC<buttonProps> = ({
       className =
         "bg-transparent border  border-primary hover:bg-primary hover:text-white transition-colors text-primary";
       break;
+
     default:
       break;
   }
