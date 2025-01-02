@@ -88,7 +88,7 @@ Menampilkan grafik penggunaan kendaraan, Statistik dari Kendaraan, Driver dan ju
 
 Menampilkan daftar kendaraan, yang memungkinkan pemantauan konsumsi bahan bakar, jadwal servis, dan riwayat penggunaan kendaraan.
 
-- **Peran Admin **: Dapat menambah, mengedit, dan menghapus data kendaraan (baik kendaraan milik perusahaan maupun kendaraan sewaan). Ketika pertama kali data kendaraan dibuat status secara default akan bernilai "Available" dan status ini akan berubah seiring waktu secara otomatis, apakah kendaraan tersebut sedang dalam pebaikan (maintenance) atau dalam pemesanan (unavalilable), admin tidak bisa menghapus kendaraan dengan status "maintenance" atau "unavailable"
+- **Peran Admin**: Dapat menambah, mengedit, dan menghapus data kendaraan (baik kendaraan milik perusahaan maupun kendaraan sewaan). Ketika pertama kali data kendaraan dibuat status secara default akan bernilai "Available" dan status ini akan berubah seiring waktu secara otomatis, apakah kendaraan tersebut sedang dalam pebaikan (maintenance) atau dalam pemesanan (unavalilable), admin tidak bisa menghapus kendaraan dengan status "maintenance" atau "unavailable"
 
 ### 3. Manajemen Driver
 
@@ -120,12 +120,17 @@ Menampilkan riwayat pemakaian kendaraan, termasuk pemesanan yang sudah selesai d
 ### 7. Dashboard Monitoring
 
 Menampilkan pemantauan secara real-time terkait penggunaan kendaraan, termasuk data durasi pemesanan, konsumsi bahan bakar, dan statistik lainnya yang berkaitan dengan kendaraan, driver, dan pemesanan.
-- **Peran Admin && approver**: Dapat melihat data pemantauan secara lengkap untuk kendaraan dan pemesanan.
+- **Peran Admin && Approver**: Dapat melihat data pemantauan secara lengkap untuk kendaraan dan pemesanan.
 
 ### 8. Laporan Pemesanan
 
 Memungkinkan admin untuk mengunduh laporan pemesanan dalam format Excel secara periodik.
 - **Peran Admin**: Dapat mengekspor laporan pemesanan secara detail untuk analisis dan pencatatan.
+
+### 9. Aktivitas Log
+Fitur Log Aktivitas memungkinkan admin dan pengguna dengan peran yang tepat untuk melacak dan mencatat semua tindakan yang dilakukan dalam aplikasi. Setiap aktivitas yang dilakukan oleh pengguna, seperti perubahan data kendaraan, pemesanan, persetujuan, dan status servis, akan dicatat dalam log aktivitas untuk keperluan audit, pemantauan, dan keamanan.
+
+- **Peran Admin && Approver**: Admin dapat melihat seluruh log aktivitas yang terjadi dalam sistem. Log aktivitas akan mencatat informasi seperti siapa yang melakukan tindakan, waktu tindakan dilakukan, serta perubahan apa yang terjadi pada data.
 
 
 
