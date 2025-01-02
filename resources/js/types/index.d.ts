@@ -1,3 +1,5 @@
+import { create } from 'zustand';
+import { Vehicle } from '@/types';
 export interface User {
     id: number;
     name: string;
@@ -16,7 +18,7 @@ export type PageProps<
 };
 
 export interface Vehicle {
-    id: string; 
+    id: number; 
     name: string;
     number_plate: string;
     ownership: 'company' | 'rental';
@@ -53,8 +55,14 @@ interface Vehicle {
   name: string;
   number_plate: string;
   ownership: string;
-  type: string;
-  [key: string]: any; 
+  type: "passenger" | "freight";
+  status: "available" | "unavailable" | "maintenance";
+  fuel_cost: number;
+  last_service_date: string;
+  next_service_date: string;
+  created_at: string;
+  updated_at: string;
+ 
 }
 
 interface Approver {
@@ -62,7 +70,7 @@ interface Approver {
   name: string;
   email: string;
   role: string;
-  [key: string]: any; // Untuk properti tambahan jika ada
+  [key: string]: any; 
 }
 
 interface Driver {
@@ -87,6 +95,16 @@ interface Driver {
     name: string;
     region: string;
     [key: string]: any;
+  }
+
+  interface Usage{
+    id: number;
+    booking : Booking;
+    vehicle : Vehicle,
+    duration : number;
+    fuel_consumption : number;
+    created_at: string;
+    updated_at: string;
   }
 
   interface Service{
