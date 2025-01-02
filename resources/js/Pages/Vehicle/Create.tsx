@@ -19,10 +19,7 @@ const Create: FC<{ auth: { user: User }; errors: any }> = ({
         number_plate: "",
         ownership: "company",
         type: "freight",
-        status: "available",
-        fuel_consumption: "",
-        last_service_date: "",
-        next_service_date: "",
+        fuel_cost: "",
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -57,7 +54,7 @@ const Create: FC<{ auth: { user: User }; errors: any }> = ({
                         label="Ownership"
                         value={data.ownership}
                         onChange={(e) => setData("ownership", e.target.value)}
-                        options={["company", "rental"]}
+                        options={[{id:"company",name:"company"},{id:"rental",name:"rental"}]}
                         error={errors.ownership}
                     />
 
@@ -66,50 +63,21 @@ const Create: FC<{ auth: { user: User }; errors: any }> = ({
                         label="Type"
                         value={data.type}
                         onChange={(e) => setData("type", e.target.value)}
-                        options={["freight", "passenger"]}
+                        options={[{id:"freight",name:"freight"},{id:"passenger",name:"passenger"}]}
                         error={errors.type}
                     />
 
-                    <FormSelect
-                        id="status"
-                        label="Status"
-                        value={data.status}
-                        onChange={(e) => setData("status", e.target.value)}
-                        options={["available", "unavailable", "maintenance"]}
-                        error={errors.status}
-                    />
-
+                   
                     <FormInput
-                        id="fuel_consumption"
+                        id="fuel_cost"
                         label="Fuel Consumption"
-                        value={data.fuel_consumption}
+                        value={data.fuel_cost}
                         onChange={(e) =>
-                            setData("fuel_consumption", e.target.value)
+                            setData("fuel_cost", e.target.value)
                         }
                         type="number"
-                        error={errors.fuel_consumption}
+                        error={errors.fuel_cost}
                     />
-
-                    <FormInput
-                        id="last_service_date"
-                        label="Last Service Date"
-                        value={data.last_service_date}
-                        onChange={(e) =>
-                            setData("last_service_date", e.target.value)
-                        }
-                        type="date"
-                    />
-
-                    <FormInput
-                        id="next_service_date"
-                        label="Next Service Date"
-                        value={data.next_service_date}
-                        onChange={(e) =>
-                            setData("next_service_date", e.target.value)
-                        }
-                        type="date"
-                    />
-
                     <button
                         type="submit"
                         className="mt-4 bg-primary text-white px-4 py-2 rounded-md"
