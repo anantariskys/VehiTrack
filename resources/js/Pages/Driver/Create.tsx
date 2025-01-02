@@ -1,13 +1,7 @@
-// pages/Create.tsx
-
-import Dropdown from "@/Components/Dropdown";
-import Sidebar from "@/Components/Sidebar";
 import { User } from "@/types";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { FC } from "react";
 import { useForm } from "@inertiajs/react";
 import FormInput from "@/Components/FormInput";
-import FormSelect from "@/Components/FormSelect";
 import MainLayout from "@/Layouts/MainLayout";
 import Button from "@/Components/Button";
 
@@ -27,10 +21,13 @@ const Create: FC<{ auth: { user: User }; errors: any }> = ({
     return (
         <MainLayout auth={auth} heading="Tambah Driver">
             <div className="overflow-x-auto shadow-lg rounded border border-gray-200">
-                <form onSubmit={handleSubmit} className="space-y-4 p-4">
+                <form
+                    onSubmit={handleSubmit}
+                    className="space-y-2 lg:space-y-4 p-4"
+                >
                     <FormInput
                         id="name"
-                        label="Name"
+                        label="Nama driver"
                         value={data.name}
                         onChange={(e) => setData("name", e.target.value)}
                         error={errors.name}
