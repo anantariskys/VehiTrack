@@ -132,7 +132,8 @@ Fitur Log Aktivitas memungkinkan admin dan pengguna dengan peran yang tepat untu
 
 - **Peran Admin && Approver**: Admin dapat melihat seluruh log aktivitas yang terjadi dalam sistem. Log aktivitas akan mencatat informasi seperti siapa yang melakukan tindakan, waktu tindakan dilakukan, serta perubahan apa yang terjadi pada data.
 
-
+## Activity Diagram
+![db structure](https://github.com/anantariskys/vehitrack/blob/main/public/Activity_Diagram.png?raw=true)
 
 
 
