@@ -8,6 +8,10 @@ class Booking extends Model
 {
 
     protected $guarded = ['id'];
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+    ];
     public function driver()
     {
         return $this->belongsTo(Driver::class);
@@ -38,5 +42,6 @@ class Booking extends Model
                     ->withPivot('status', 'created_at', 'updated_at')
                     ->withTimestamps();
     }   
+    
 
 }
